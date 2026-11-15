@@ -10,7 +10,8 @@ API = "https://www.bizinfo.go.kr/uss/rss/bizinfoApi.do"
 OPENCHAT = os.environ.get("OPENCHAT_URL") or "https://open.kakao.com/o/gUfaZ8Wi"  # 오픈채팅 링크가 정해지면 Actions 변수로 넣는다
 KST = datetime.timezone(datetime.timedelta(hours=9))
 TODAY = datetime.datetime.now(KST).date()
-KEEP = ["희망리턴", "재창업", "폐업", "대출", "소상공인", "자영업", "창업", "1인", "중소기업", "상인", "점포", "골목", "온라인", "판로", "마케팅", "경영", "정책자금", "보증", "디지털", "스마트"]
+KEEP = ["소상공인", "자영업", "소기업", "1인", "전통시장", "상인", "상점가", "점포", "골목", "희망리턴", "재창업", "폐업", "정책자금", "예비창업", "창업기업", "초기창업", "온라인 판로", "온라인판로", "배달"]
+DROP = ["R&D", "연구", "실증", "과제", "기술개발", "반도체", "바이오", "나노", "수출바우처", "해외전시", "대학", "산학"]
 REGIONS = ["서울", "경기", "인천", "부산", "대구", "광주", "대전", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"]
 
 def esc(s): return html.escape(str(s or ""), quote=True)
@@ -63,6 +64,7 @@ def norm(it):
 def relevant(x):
     if not x["id"] or not x["title"]: return False
     if x["end"] and datetime.date.fromisoformat(x["end"]) < TODAY: return False
+    if x["field"] == "기술" or any(k in x["title"] for k in DROP): return False
     return any(k in x["text"] for k in KEEP)
 
 def dday(x):
