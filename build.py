@@ -3,7 +3,7 @@
 목록 페이지, 공고별 페이지, sitemap.xml을 만든다. API 키는 저장소 비밀값 BIZINFO_KEY.
 로컬 테스트: python build.py --fixture fixtures/sample.json
 """
-import html, json, os, re, sys, datetime, urllib.parse, urllib.request
+import html, json, os, re, sys, time, datetime, urllib.parse, urllib.request
 
 SITE = "https://eddpositive.github.io/sajang"
 API = "https://www.bizinfo.go.kr/uss/rss/bizinfoApi.do"
@@ -24,8 +24,16 @@ def fetch():
     for page in range(1, 6):
         q = urllib.parse.urlencode({"crtfcKey": key, "dataType": "json", "pageIndex": page, "pageUnit": 100})
         req = urllib.request.Request(f"{API}?{q}", headers={"User-Agent": "Mozilla/5.0 sajang-radar"})
-        with urllib.request.urlopen(req, timeout=40) as r:
-            data = json.loads(r.read().decode("utf-8"))
+        data = None
+        for attempt in range(4):  # 기업마당 서버가 가끔 늦게 응답해서 다시 시도한다
+            try:
+                with urllib.request.urlopen(req, timeout=90) as r:
+                    data = json.loads(r.read().decode("utf-8"))
+                break
+            except Exception as e:
+                print(f"page {page} attempt {attempt+1} failed: {e}")
+                time.sleep(20 * (attempt + 1))
+        if data is None: raise SystemExit("기업마당 API 응답 없음. 기존 사이트는 그대로 둔다.")
         arr = data.get("jsonArray") if isinstance(data, dict) else data
         if isinstance(data, dict) and data.get("reqErr"): raise SystemExit("API 오류: " + str(data.get("reqErr")))
         if not arr: break
