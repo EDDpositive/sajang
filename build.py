@@ -143,7 +143,10 @@ function go(){{const t=q.value.trim().toLowerCase();let n=0;document.querySelect
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": "사장님 지원금 레이더", "url": f"{SITE}/"}
     open(f"{out}/index.html", "w", encoding="utf-8").write(page("소상공인 정책자금·지원금 신청 가능한 공고 (마감 임박 순) | 사장님 지원금 레이더",
         "소상공인 정책자금, 소상공인 지원금, 자영업자 지원사업 중 지금 신청할 수 있는 공고를 마감 순으로 매일 정리합니다. 지역·분야별로 찾고 공고 원문으로 바로 이동하세요.", "", body, ld))
-    # 지난 공고 페이지는 지우지 않는다(검색 유입 유지). sitemap에는 현재 공고만.
+    # 지금 목록에 없는 공고 페이지(마감·기준 밖)는 지워 사이트 주제를 사장님 공고로 유지한다.
+    keep_ids = {x["id"] for x in items}
+    for fn in os.listdir(f"{out}/p"):
+        if fn.endswith(".html") and fn[:-5] not in keep_ids: os.remove(f"{out}/p/{fn}")
     urls = [f"{SITE}/"] + [f"{SITE}/p/{x['id']}.html" for x in items]
     open(f"{out}/sitemap.xml", "w", encoding="utf-8").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         "".join(f"  <url><loc>{u}</loc><lastmod>{TODAY.isoformat()}</lastmod></url>\n" for u in urls) + "</urlset>\n")
