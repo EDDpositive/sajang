@@ -10,7 +10,7 @@ API = "https://www.bizinfo.go.kr/uss/rss/bizinfoApi.do"
 OPENCHAT = os.environ.get("OPENCHAT_URL") or "https://open.kakao.com/o/gUfaZ8Wi"  # 오픈채팅 링크가 정해지면 Actions 변수로 넣는다
 KST = datetime.timezone(datetime.timedelta(hours=9))
 TODAY = datetime.datetime.now(KST).date()
-KEEP = ["소상공인", "자영업", "소기업", "1인", "전통시장", "상인", "상점가", "점포", "골목", "희망리턴", "재창업", "폐업", "정책자금", "예비창업", "창업기업", "초기창업", "온라인 판로", "온라인판로", "배달"]
+KEEP = ["소상공인", "자영업", "1인 창업", "1인창업", "1인 기업", "1인기업", "전통시장", "상인", "상점가", "점포", "골목", "희망리턴", "재창업", "폐업", "정책자금", "예비창업", "창업기업", "초기창업", "온라인 판로", "온라인판로", "배달"]
 DROP = ["R&D", "연구", "실증", "과제", "기술개발", "반도체", "바이오", "나노", "수출바우처", "해외전시", "대학", "산학"]
 REGIONS = ["서울", "경기", "인천", "부산", "대구", "광주", "대전", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"]
 
@@ -58,14 +58,16 @@ def norm(it):
         "target": clean(it.get("trgetNm")), "org": clean(it.get("jrsdInsttNm")), "exec": clean(it.get("excInsttNm")),
         "field": clean(it.get("pldirSportRealmLclasCodeNm")), "period": period,
         "begin": begin.isoformat() if begin else None, "end": end.isoformat() if end else None,
-        "url": url, "region": region, "text": text,
+        "url": url, "region": region, "text": text, "tags": clean(it.get("hashtags")),
     }
 
 def relevant(x):
     if not x["id"] or not x["title"]: return False
     if x["end"] and datetime.date.fromisoformat(x["end"]) < TODAY: return False
     if x["field"] == "기술" or any(k in x["title"] for k in DROP): return False
-    return any(k in x["text"] for k in KEEP)
+    core = " ".join([x["title"], x["target"], x["tags"]])
+    if re.search(r"(?<!중)소기업", core): return True
+    return any(k in core for k in KEEP)
 
 def dday(x):
     if not x["end"]: return "상시·예산 소진 시"

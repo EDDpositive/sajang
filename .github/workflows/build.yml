@@ -1,7 +1,7 @@
 name: build site
 on:
   schedule:
-    - cron: "17 21 * * *"   # 매일 한국 시간 06:17 (생성기를 고치면 바로 다시 만듦)
+    - cron: "17 21 * * *"   # 매일 한국 시간 06:17 (생성기나 이 파일을 고치면 바로 다시 만듦)
   workflow_dispatch:
   push:
     branches: [main]
