@@ -29,6 +29,58 @@ TOPICS = [
     ("market", "전통시장·상점가 지원", ["전통시장", "상점가", "골목", "상인"]),
 ]
 
+# 오래 남는 안내 페이지(g/<slug>.html). 공고 목록과 달리 검색량이 큰 주제를 설명한다.
+# 금리처럼 분기마다 바뀌는 숫자는 쓰지 않고 공식 페이지로 연결한다. 숫자를 고치면 CHECKED 날짜도 고친다.
+CHECKED = "2026-11-16"
+GUIDES = [
+    {"slug": "policy-fund-guide", "topic": "policy-fund",
+     "h1": "소상공인 정책자금 신청 방법 한 번에 정리",
+     "title": "소상공인 정책자금 신청 방법·자격·한도 정리 (2026) | 사장님 지원금 레이더",
+     "desc": "소상공인 정책자금이 무엇인지, 누가 받을 수 있는지, 어디서 어떻게 신청하는지 순서대로 정리했어요. 지금 신청 가능한 정책자금 공고도 함께 봐요.",
+     "body": """<div class="card">
+<p><b>한 줄로</b>: 소상공인 정책자금은 정부(소상공인시장진흥공단)가 시중보다 낮은 금리로 빌려주는 사업 자금이에요. 받는 돈이 아니라 갚는 돈이에요.</p></div>
+<h2>누가 받을 수 있나요</h2>
+<p>사업자등록을 한 소상공인이 대상이에요. 업종마다 상시 근로자 수 기준(대부분 5명 미만, 제조업 등은 10명 미만)이 있고, 자금 종류마다 업력·신용·나이 조건이 따로 붙어요. 휴·폐업 중이거나 세금·대출이 연체 중이면 받기 어려워요.</p>
+<h2>자금은 크게 이렇게 나뉘어요</h2>
+<ul>
+<li><b>일반경영안정자금</b>: 업력과 관계없이 운영 자금이 필요한 사장님. 공고 기준 최대 7천만 원.</li>
+<li><b>청년·신용취약 등 대상별 자금</b>: 나이나 신용 상황에 맞춘 자금이 따로 있어요.</li>
+<li><b>대환대출</b>: 이미 받은 고금리 대출을 정책자금으로 갈아타는 자금이에요.</li>
+</ul>
+<p>금리는 \"정책자금 기준금리 + 자금별 가산금리\"로 정해지고 분기마다 바뀌어요. 그래서 여기에는 숫자를 적지 않아요. <a href="https://ols.semas.or.kr/ols/man/SMAN019M/page.do" rel="nofollow noopener" target="_blank">공식 금리표</a>에서 지금 금리를 확인하세요.</p>
+<h2>신청 순서</h2>
+<ol>
+<li><a href="https://ols.semas.or.kr" rel="nofollow noopener" target="_blank">소상공인정책자금 누리집</a>에 들어가 간편인증이나 공동인증서로 로그인해요.</li>
+<li>\"정책자금 내비게이터\"로 내 상황에 맞는 자금을 먼저 찾아요.</li>
+<li>온라인으로 신청하고, 필요한 서류를 올려요.</li>
+<li>공단 확인과 심사를 거쳐 보증서를 받거나 은행에서 대출이 실행돼요(자금마다 방식이 달라요).</li>
+</ol>
+<p>자금은 예산이 떨어지면 마감돼요. 공고를 미리 확인해 두세요. 헷갈리면 소상공인 통합콜센터 1533-0100에 물어보세요.</p>
+<h2>조심할 것</h2>
+<p>정책자금은 본인이 직접 신청할 수 있어요. \"대신 받아 주겠다\"며 수수료를 요구하는 브로커를 조심하세요. 공단도 제3자 부당 개입을 주의하라고 안내해요.</p>"""},
+    {"slug": "hope-return-guide", "topic": "hope-return",
+     "h1": "희망리턴패키지, 폐업하는 사장님이 받을 수 있는 지원",
+     "title": "희망리턴패키지 신청 자격·지원 내용 정리 (2026) | 사장님 지원금 레이더",
+     "desc": "가게를 접거나 업종을 바꾸려는 소상공인을 위한 희망리턴패키지. 점포철거비, 재취업, 재창업 지원을 누가 어떻게 받는지 정리했어요.",
+     "body": """<div class="card">
+<p><b>한 줄로</b>: 희망리턴패키지는 폐업했거나 폐업을 앞둔 소상공인이 가게를 정리하고, 다시 취업하거나 창업하도록 돕는 정부 지원이에요.</p></div>
+<h2>세 갈래로 나뉘어요</h2>
+<ul>
+<li><b>원스톱 폐업지원</b>: 점포 철거·원상복구 비용 일부와 폐업 관련 상담(세무·법률 등)을 지원해요. 철거비는 면적에 따라 정해지고 공고 기준 최대 600만 원이에요.</li>
+<li><b>재취업 지원</b>: 취업 교육을 받고 취업하면 전직장려수당(공고 기준 최대 100만 원, 나눠서 지급)을 받을 수 있어요.</li>
+<li><b>재창업 지원</b>: 다시 창업하려는 사장님에게 교육과 멘토링, 사업화 자금을 지원해요. 차수별로 모집해요.</li>
+</ul>
+<h2>꼭 알아 둘 조건</h2>
+<ul>
+<li><b>철거비는 철거하기 전에 신청</b>해야 해요. 이미 철거한 뒤에는 받기 어려워요.</li>
+<li>철거비는 돈을 내고 빌린 점포(유상 임대)를 일정 기간 이상 운영한 경우가 대상이에요. 자기 소유 점포는 대상이 아니에요.</li>
+<li>재취업 수당은 교육 이수와 고용보험 가입 사업장 취업 같은 조건이 붙어요.</li>
+<li>예산이 떨어지면 마감되고, 세부 조건은 해마다 바뀌어요. 신청 전에 공고문을 꼭 확인하세요.</li>
+</ul>
+<h2>어디서 신청하나요</h2>
+<p><a href="https://www.sbiz24.kr" rel="nofollow noopener" target="_blank">소상공인24</a>에서 \"희망리턴패키지\"를 찾아 신청해요. 문의는 소상공인 통합콜센터 1533-0100.</p>"""},
+]
+
 def esc(s): return html.escape(str(s or ""), quote=True)
 def clean(s): return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html.unescape(str(s or "")))).strip()
 
@@ -147,8 +199,8 @@ def li(x, base=""):
 
 def hub_links(region_hubs, topic_hubs, base=""):
     """지역별·주제별 모음 페이지 링크 묶음(검색 로봇이 따라갈 수 있는 일반 링크)."""
-    if not region_hubs and not topic_hubs: return ""
-    out = ""
+    out = "<h2>알아 두면 좋은 안내</h2><p class=\"links\">" + "".join(
+        f'<a href="{base}g/{g["slug"]}.html">{esc(g["h1"])}</a>' for g in GUIDES) + "</p>"
     if region_hubs:
         out += "<h2>지역별 지원금</h2><p class=\"links\">" + "".join(
             f'<a href="{base}r/{slug}.html">{esc(reg)} ({n})</a>' for reg, slug, n in region_hubs) + "</p>"
@@ -235,6 +287,24 @@ def build(raw, out="."):
         title = f"{name} {MONTH} 공고 {n}건 (마감 순) | 사장님 지원금 레이더"
         desc = f"{name} 관련 소상공인 지원사업 공고 {n}건을 마감 순으로 정리했어요. 지역·마감일·원문 링크를 한눈에. 기업마당 공식 데이터로 매일 갱신."
         write_hub(out, path, h1, title, desc, lead, [(None, by_topic[slug])], nav_sub)
+        hub_paths.append(path)
+
+    # 안내 페이지: 설명 + 관련 주제의 지금 신청 가능한 공고(최대 10건)
+    os.makedirs(f"{out}/g", exist_ok=True)
+    for g in GUIDES:
+        path = f"g/{g['slug']}.html"
+        rel = by_topic.get(g["topic"], [])
+        rel_html = ""
+        if rel:
+            rel_html = f"<h2>지금 신청 가능한 관련 공고 {len(rel)}건</h2>" + "\n".join(li(x, "../") for x in rel[:10])
+            if len(rel) > 10:
+                rel_html += f'<p class="meta"><a href="../t/{g["topic"]}.html">관련 공고 {len(rel)}건 전체 보기 →</a></p>'
+        body = f"""<header><p class="meta"><a href="../">← 지원금 전체 목록</a></p><h1>{esc(g['h1'])}</h1>
+<p class="meta">내용 확인일 {CHECKED} · 세부 조건은 해마다 바뀌니 신청 전 공고문을 꼭 확인하세요.</p></header>
+{g['body']}{rel_html}{cta()}{nav_sub}"""
+        ld = {"@context": "https://schema.org", "@type": "Article", "headline": g["h1"], "dateModified": CHECKED,
+              "url": f"{SITE}/{path}"}
+        open(f"{out}/{path}", "w", encoding="utf-8").write(page(g["title"], g["desc"], path, body, ld))
         hub_paths.append(path)
 
     lst = "\n".join(li(x, "") for x in items)
