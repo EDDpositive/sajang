@@ -8,6 +8,7 @@ import html, json, os, re, sys, time, datetime, urllib.parse, urllib.request
 SITE = "https://eddpositive.github.io/sajang"
 API = "https://www.bizinfo.go.kr/uss/rss/bizinfoApi.do"
 OPENCHAT = os.environ.get("OPENCHAT_URL") or "https://open.kakao.com/o/gUfaZ8Wi"  # 오픈채팅 링크가 정해지면 Actions 변수로 넣는다
+NEWSLETTER = os.environ.get("NEWSLETTER_URL") or "https://s-newsletter-80c205.beehiiv.com/subscribe"  # beehiiv 이메일 구독 페이지
 KST = datetime.timezone(datetime.timedelta(hours=9))
 TODAY = datetime.datetime.now(KST).date()
 MONTH = f"{TODAY.month}월"
@@ -115,6 +116,7 @@ h2{font-size:18px;margin:26px 0 10px;letter-spacing:-.01em}
 .tag{background:var(--acc2);color:var(--acc);border-radius:99px;padding:1px 8px;font-weight:700}.tag.hot{background:#fbeee7;color:var(--hot)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}.card p{margin:6px 0}
 .cta{background:var(--ink);color:#fff;border-radius:16px;padding:18px;margin:20px 0}.cta a{color:#fff;font-weight:700}
+.cta-links{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px}
 .btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;border-radius:10px;padding:10px 14px;font-weight:700}
 .links a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border:1px solid var(--line);border-radius:99px;background:#fff;text-decoration:none;font-size:14px}
 footer{font-size:12px;color:var(--sub);margin-top:24px}dt{font-size:12px;color:var(--sub);margin-top:10px}dd{margin:2px 0 0}"""
@@ -129,9 +131,14 @@ def page(title, desc, path, body, ld=None):
 <footer>공고 정보는 기업마당 공식 데이터를 매일 자동으로 정리한 것입니다. 지원 자격과 내용은 반드시 공고 원문에서 확인하세요. 이 사이트는 신청을 대행하거나 선정을 보장하지 않습니다.</footer></div></body></html>"""
 
 def cta():
+    links = []
+    if NEWSLETTER:
+        sep = "&" if "?" in NEWSLETTER else "?"
+        links.append(f'<a class="btn" href="{esc(NEWSLETTER + sep + "utm_source=sajang")}" rel="noopener" target="_blank">이메일로 받기 (무료)</a>')
     if OPENCHAT:
-        return f'<div class="cta">매주 월요일, 마감 임박 지원금만 골라 카톡으로 받아 보세요. <a href="{esc(OPENCHAT)}">사장님 지원금 레이더 오픈채팅 입장 →</a></div>'
-    return '<div class="cta">매주 월요일, 마감 임박 지원금 소식을 카톡 오픈채팅 "사장님 지원금 레이더"에서 받아 볼 수 있어요.</div>'
+        links.append(f'<a href="{esc(OPENCHAT)}">카톡 오픈채팅으로 받기 →</a>')
+    return ('<div class="cta">매주 월요일, 마감 임박 지원금만 골라 보내 드려요.'
+            f'<div class="cta-links">{" ".join(links)}</div></div>')
 
 def li(x, base=""):
     """목록 한 줄. base는 p/ 앞에 붙일 상대 경로(목록 페이지 "", 모음 페이지 "../")."""
