@@ -30,3 +30,6 @@ jobs:
           git diff --cached --quiet || git commit -m "update listings"
           git pull --rebase origin main
           git push
+      - name: 검색엔진에 새 주소 알리기 (IndexNow)
+        continue-on-error: true
+        run: sleep 90 && python indexnow.py
