@@ -9,6 +9,8 @@ SITE = "https://eddpositive.github.io/sajang"
 API = "https://www.bizinfo.go.kr/uss/rss/bizinfoApi.do"
 OPENCHAT = os.environ.get("OPENCHAT_URL") or "https://open.kakao.com/o/gUfaZ8Wi"  # 오픈채팅 링크가 정해지면 Actions 변수로 넣는다
 NEWSLETTER = os.environ.get("NEWSLETTER_URL") or "https://s-newsletter-80c205.beehiiv.com/subscribe"  # beehiiv 이메일 구독 페이지
+# 방문 분석(GoatCounter, 쿠키 없음). 계정 주소가 바뀌면 Actions 변수 GOATCOUNTER로 바꾼다.
+GOAT = os.environ.get("GOATCOUNTER") or "https://eddpositive.goatcounter.com/count"
 KST = datetime.timezone(datetime.timedelta(hours=9))
 TODAY = datetime.datetime.now(KST).date()
 MONTH = f"{TODAY.month}월"
@@ -179,6 +181,15 @@ def dday(x):
 def is_hot(x):
     return bool(x["end"]) and (datetime.date.fromisoformat(x["end"]) - TODAY).days <= 7
 
+AMT1 = re.compile(r"최대\s*([0-9][0-9,\.]*)\s*(억|천만|백만|만)?\s*원")
+AMT2 = re.compile(r"([0-9][0-9,]*)\s*(억|천만|백만|만)\s*원\s*(?:한도|이내)")
+def amount(x):
+    """공고 제목·요약에서 지원 한도를 뽑는다. 못 찾으면 빈 문자열(추측하지 않는다)."""
+    blob = x["title"] + " " + x["summary"]
+    m = AMT1.search(blob) or AMT2.search(blob)
+    if not m: return ""
+    return f"최대 {m.group(1)}{m.group(2) or ''} 원"
+
 def topics_of(x):
     blob = " ".join([x["title"], x["summary"], x["tags"], x["field"]])
     return [t for t in TOPICS if any(k in blob for k in t[2])]
@@ -198,6 +209,7 @@ h2{font-size:18px;margin:26px 0 10px;letter-spacing:-.01em}
 .cta-links{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px}
 .btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;border-radius:10px;padding:10px 14px;font-weight:700}
 .links a{display:inline-block;margin:4px 6px 4px 0;padding:6px 12px;border:1px solid var(--line);border-radius:99px;background:#fff;text-decoration:none;font-size:14px}
+.tag.amt{background:#fff6dc;color:#7a5a00}.tool{display:grid;gap:10px}.tool label{font-weight:700}.tool select,.tool input{padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff}.res{border-radius:12px;padding:14px;margin-top:8px;font-weight:700}.res.ok{background:var(--acc2);color:var(--acc)}.res.no{background:#fbeee7;color:var(--hot)}
 footer{font-size:12px;color:var(--sub);margin-top:24px}dt{font-size:12px;color:var(--sub);margin-top:10px}dd{margin:2px 0 0}"""
 
 def page(title, desc, path, body, ld=None):
@@ -207,8 +219,8 @@ def page(title, desc, path, body, ld=None):
 <title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><link rel="canonical" href="{canon}">
 <meta property="og:type" content="website"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{canon}">
 <meta property="og:site_name" content="사장님 지원금 레이더"><meta property="og:locale" content="ko_KR"><meta property="og:image" content="{SITE}/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
-{ldtag}<style>{CSS}</style></head><body><div class="wrap">{body}
-<footer>공고 정보는 기업마당 공식 데이터를 매일 자동으로 정리한 것입니다. 지원 자격과 내용은 반드시 공고 원문에서 확인하세요. 이 사이트는 신청을 대행하거나 선정을 보장하지 않습니다.</footer></div></body></html>"""
+{ldtag}<style>{CSS}</style><script data-goatcounter="{GOAT}" async src="//gc.zgo.at/count.js"></script></head><body><div class="wrap">{body}
+<footer>공고 정보는 기업마당 공식 데이터를 매일 자동으로 정리한 것입니다. 지원 자격과 내용은 반드시 공고 원문에서 확인하세요. 이 사이트는 신청을 대행하거나 선정을 보장하지 않습니다. <a href="{SITE}/about.html">운영 원칙</a></footer></div></body></html>"""
 
 def cta():
     links = []
@@ -223,11 +235,12 @@ def cta():
 def li(x, base=""):
     """목록 한 줄. base는 p/ 앞에 붙일 상대 경로(목록 페이지 "", 모음 페이지 "../")."""
     return (f'<a class="item" href="{base}p/{x["id"]}.html" data-r="{esc(x["region"])}" data-f="{esc(x["field"])}" data-t="{esc((x["title"]+" "+x["target"]+" "+x["org"]).lower())}"><b>{esc(x["title"])}</b>'
-            f'<div class="row"><span class="tag{" hot" if is_hot(x) else ""}">{esc(dday(x))}</span><span>{esc(x["region"])}</span><span>{esc(x["org"])}</span></div></a>')
+            f'<div class="row"><span class="tag{" hot" if is_hot(x) else ""}">{esc(dday(x))}</span>{f'<span class="tag amt">{esc(amount(x))}</span>' if amount(x) else ""}<span>{esc(x["region"])}</span><span>{esc(x["org"])}</span></div></a>')
 
 def hub_links(region_hubs, topic_hubs, base=""):
     """지역별·주제별 모음 페이지 링크 묶음(검색 로봇이 따라갈 수 있는 일반 링크)."""
-    out = "<h2>알아 두면 좋은 안내</h2><p class=\"links\">" + "".join(
+    out = f'<h2>도구</h2><p class="links"><a href="{base}check.html">우리 가게, 소상공인 맞나요? (30초 확인)</a></p>'
+    out += "<h2>알아 두면 좋은 안내</h2><p class=\"links\">" + "".join(
         f'<a href="{base}g/{g["slug"]}.html">{esc(g["h1"])}</a>' for g in GUIDES) + "</p>"
     if region_hubs:
         out += "<h2>지역별 지원금</h2><p class=\"links\">" + "".join(
@@ -251,6 +264,47 @@ def write_hub(out, path, h1, title, desc, lead, groups, nav):
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": h1, "url": f"{SITE}/{path}"}
     open(f"{out}/{path}", "w", encoding="utf-8").write(page(title, desc, path, body, ld))
 
+def write_extras(out, items, nav_sub):
+    """도구·운영 원칙·주간 카드 페이지."""
+    nav_root = nav_sub.replace('href="../', 'href="')
+    # 소상공인 확인기: 소상공인기본법 기준(상시근로자 수) + 소기업 매출 기준 안내
+    check = f"""<header><p class="meta"><a href="./">← 지원금 전체 목록</a></p><h1>우리 가게, 소상공인 맞나요?</h1>
+<p class="lead">소상공인 전용 지원금은 이 기준을 먼저 봐요. 업종과 직원 수만 고르면 30초 안에 확인할 수 있어요.</p></header>
+<div class="card tool"><label for="ind">주된 업종</label>
+<select id="ind"><option value="5">음식점·카페·소매·미용·서비스 등 (대부분 업종)</option><option value="10">제조업</option><option value="10">건설업</option><option value="10">운수업</option><option value="10">광업</option></select>
+<label for="emp">상시 근로자 수 (사장님 본인과 가족 무급 종사자는 빼고 세요)</label>
+<input id="emp" type="number" min="0" max="999" value="2" inputmode="numeric">
+<div class="res ok" id="res" role="status"></div></div>
+<div class="card"><p><b>함께 봐야 하는 매출 기준</b>: 소상공인은 먼저 \"소기업\"이어야 해요. 소기업은 업종별로 최근 3년 평균 매출액이 10억~120억 원 이하인 기업이에요. 대부분의 동네 가게는 여기에 들어가요.</p>
+<p><b>공식 확인</b>: 지원 신청에 \"소상공인 확인서\"가 필요하면 <a href="https://sminfo.mss.go.kr" rel="nofollow noopener" target="_blank">중소기업현황정보시스템</a>에서 발급해요.</p>
+<p class="meta">기준: 소상공인기본법. 광업·제조업·건설업·운수업은 상시 근로자 10명 미만, 그 밖의 업종은 5명 미만. 확인일 {CHECKED}. 개별 사업의 자격은 공고문이 우선이에요.</p></div>
+{cta()}{nav_root}
+<script>const ind=document.getElementById('ind'),emp=document.getElementById('emp'),res=document.getElementById('res');
+function go(){{const lim=+ind.value,n=Math.max(0,Math.floor(+emp.value||0));const ok=n<lim;res.className='res '+(ok?'ok':'no');
+res.textContent=ok?`직원 수 기준으로는 소상공인이에요 (${{n}}명 < ${{lim}}명). 매출 기준도 함께 확인하세요.`:`직원 수 기준(${{lim}}명 미만)을 넘어요. 소상공인 전용 지원은 어렵지만, 소기업·중소기업 대상 공고는 신청할 수 있어요.`;}}
+[ind,emp].forEach(e=>e.addEventListener('input',go));go();</script>"""
+    open(f"{out}/check.html", "w", encoding="utf-8").write(page("소상공인 기준 확인: 우리 가게 소상공인 맞나요? (직원 수·매출) | 사장님 지원금 레이더",
+        "업종과 상시 근로자 수만 고르면 소상공인 기준에 드는지 바로 확인해요. 광업·제조·건설·운수업 10명 미만, 그 밖의 업종 5명 미만. 매출 기준과 확인서 발급처도 함께 안내해요.", "check.html", check,
+        {"@context": "https://schema.org", "@type": "WebApplication", "name": "소상공인 기준 확인", "applicationCategory": "BusinessApplication", "url": f"{SITE}/check.html"}))
+    # 운영 원칙
+    about = f"""<header><p class="meta"><a href="./">← 지원금 전체 목록</a></p><h1>운영 원칙</h1></header>
+<div class="card"><p><b>데이터</b>: 중소벤처기업부 기업마당의 공식 지원사업 데이터를 매일 오전 6시경 자동으로 받아 정리해요. 소상공인·자영업자와 관련 있는 공고만 골라요.</p>
+<p><b>하지 않는 것</b>: 신청 대행, 대출 알선, 선정 보장, 수수료 요구를 하지 않아요. 이런 걸 요구하는 연락은 이 사이트와 관련이 없어요.</p>
+<p><b>정확성</b>: 지원 한도 같은 값은 공고 요약에서 자동으로 뽑아요. 틀릴 수 있으니 신청 전에 공고 원문을 꼭 확인하세요.</p>
+<p><b>비용</b>: 무료이고 가입이 필요 없어요.</p></div>{cta()}"""
+    open(f"{out}/about.html", "w", encoding="utf-8").write(page("운영 원칙 | 사장님 지원금 레이더", "사장님 지원금 레이더의 데이터 출처, 갱신 방식, 하지 않는 일(신청 대행·대출 알선)을 안내해요.", "about.html", about))
+    # 주간 카드(인스타그램·스레드용, 1080×1350으로 캡처). 검색엔진에는 내보내지 않는다.
+    top = [x for x in items if x["end"]][:5]
+    rows = "".join(f'<li><span class="d">{esc(dday(x))}</span><span class="t">{esc(x["title"][:46])}</span><span class="m">{esc(x["region"])}{" · " + esc(amount(x)) if amount(x) else ""}</span></li>' for x in top)
+    card = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>마감 임박 지원금 카드</title>
+<style>body{{margin:0;background:#1d1b18}}.c{{width:1080px;height:1350px;box-sizing:border-box;padding:80px;background:#f6f4ef;color:#1d1b18;font-family:"Pretendard","Apple SD Gothic Neo","Noto Sans CJK KR",sans-serif;display:flex;flex-direction:column}}
+h1{{font-size:68px;line-height:1.2;margin:0 0 12px;letter-spacing:-.02em}}p{{font-size:30px;color:#6b665d;margin:0 0 44px}}ol{{list-style:none;padding:0;margin:0;display:grid;gap:26px;flex:1}}
+li{{background:#fff;border:2px solid #e2ddd2;border-radius:28px;padding:26px 30px;display:grid;gap:6px}}.d{{color:#b4532a;font-weight:800;font-size:30px}}.t{{font-size:36px;font-weight:700;line-height:1.3}}.m{{font-size:26px;color:#6b665d}}
+.f{{font-size:30px;font-weight:700;color:#2f5d50;margin-top:30px}}</style></head><body><div class="c">
+<h1>마감이 가까운<br>소상공인 지원금 {len(top)}건</h1><p>{TODAY.month}월 {TODAY.day}일 기준 · 기업마당 공식 데이터</p><ol>{rows}</ol>
+<div class="f">전체 목록: eddpositive.github.io/sajang</div></div></body></html>"""
+    open(f"{out}/card.html", "w", encoding="utf-8").write(card)
+
 def build(raw, out="."):
     xs = [norm(i) for i in raw]
     seen, items = set(), []
@@ -258,7 +312,7 @@ def build(raw, out="."):
         if relevant(x) and x["id"] not in seen:
             seen.add(x["id"]); items.append(x)
     items.sort(key=lambda x: (x["end"] is None, x["end"] or "9999"))
-    for d in ("p", "r", "t"):
+    for d in ("p", "r", "t", "c"):
         os.makedirs(f"{out}/{d}", exist_ok=True)
 
     # 모음 페이지 대상: 공고가 1건 이상인 지역·주제만 만든다(빈 페이지는 만들지 않는다).
@@ -282,7 +336,7 @@ def build(raw, out="."):
         more_html = f'<h2>비슷한 공고 더 보기</h2><p class="links">{"".join(more)}</p>' if more else ""
         body = f"""<header><p class="meta"><a href="../">← 지원금 전체 목록</a></p><h1>{esc(x['title'])}</h1>
 <div class="row"><span class="tag{' hot' if is_hot(x) else ''}">{esc(dday(x))}</span><span class="tag">{esc(x['region'])}</span>{f'<span class="tag">{esc(x["field"])}</span>' if x['field'] else ''}</div></header>
-<div class="card"><dl><dt>신청 기간</dt><dd>{esc(x['period'] or '공고 원문 확인')}</dd><dt>지원 대상</dt><dd>{esc(x['target'] or '공고 원문 확인')}</dd>
+<div class="card"><dl>{f'<dt>지원 한도 (공고 요약에서 자동 추출)</dt><dd><b>{esc(amount(x))}</b> · 실제 금액은 원문에서 확인하세요</dd>' if amount(x) else ''}<dt>신청 기간</dt><dd>{esc(x['period'] or '공고 원문 확인')}</dd><dt>지원 대상</dt><dd>{esc(x['target'] or '공고 원문 확인')}</dd>
 <dt>담당 기관</dt><dd>{esc(' / '.join(v for v in [x['org'], x['exec']] if v) or '공고 원문 확인')}</dd>
 {f'<dt>사업 내용 요약</dt><dd>{esc(x["summary"])}</dd>' if x['summary'] else ''}</dl>
 <p style="margin-top:14px"><a class="btn" href="{esc(x['url'])}" rel="nofollow noopener" target="_blank">공고 원문 보기</a></p></div>{more_html}{cta()}"""
@@ -317,6 +371,22 @@ def build(raw, out="."):
         write_hub(out, path, h1, title, desc, lead, [(None, by_topic[slug])], nav_sub)
         hub_paths.append(path)
 
+    # 지역×주제 모음 페이지(c/<지역>-<주제>.html). "서울 소상공인 정책자금" 같은 긴 검색어를 받는다.
+    # 그 지역 공고가 2건 이상인 조합만 만든다(얇은 페이지는 만들지 않는다).
+    for reg, rslug, _ in region_hubs:
+        if reg == "전국": continue
+        for tslug, tname, _ in topic_hubs:
+            local = [x for x in by_topic[tslug] if x["region"] == reg]
+            if len(local) < 2: continue
+            nat = [x for x in by_topic[tslug] if x["region"] == "전국"]
+            path = f"c/{rslug}-{tslug}.html"
+            h1 = f"{reg} {tname} {MONTH} 신청 가능한 공고"
+            lead = f"{reg} 소상공인·자영업자가 지금 신청할 수 있는 {tname} 공고를 마감 순으로 모았어요. 아래에는 지역 제한 없는 전국 공고도 있어요."
+            title = f"{reg} {tname} {MONTH} 공고 {len(local)}건 (마감 순) | 사장님 지원금 레이더"
+            desc = f"{reg} 소상공인을 위한 {tname} 공고 {len(local)}건과 전국 공고 {len(nat)}건을 마감 순으로 정리했어요. 기업마당 공식 데이터로 매일 갱신."
+            write_hub(out, path, h1, title, desc, lead, [(f"{reg} 공고 {len(local)}건", local), (f"전국 공고 {len(nat)}건", nat)], nav_sub)
+            hub_paths.append(path)
+
     # 안내 페이지: 설명 + 관련 주제의 지금 신청 가능한 공고(최대 10건)
     os.makedirs(f"{out}/g", exist_ok=True)
     for g in GUIDES:
@@ -335,6 +405,9 @@ def build(raw, out="."):
               "url": f"{SITE}/{path}"}
         open(f"{out}/{path}", "w", encoding="utf-8").write(page(g["title"], g["desc"], path, body, ld))
         hub_paths.append(path)
+
+    write_extras(out, items, nav_sub)
+    hub_paths += ["check.html", "about.html"]
 
     lst = "\n".join(li(x, "") for x in items)
     regions = "".join(f"<option>{r}</option>" for r in ["전국"] + REGIONS)
@@ -359,7 +432,7 @@ function go(){{const t=q.value.trim().toLowerCase();let n=0;document.querySelect
     for fn in os.listdir(f"{out}/p"):
         if fn.endswith(".html") and fn[:-5] not in keep_ids: os.remove(f"{out}/p/{fn}")
     keep_hubs = set(hub_paths)
-    for d in ("r", "t"):
+    for d in ("r", "t", "c"):
         for fn in os.listdir(f"{out}/{d}"):
             if fn.endswith(".html") and f"{d}/{fn}" not in keep_hubs: os.remove(f"{out}/{d}/{fn}")
     urls = [f"{SITE}/"] + [f"{SITE}/{p}" for p in hub_paths] + [f"{SITE}/p/{x['id']}.html" for x in items]
