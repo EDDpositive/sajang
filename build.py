@@ -400,6 +400,7 @@ def write_week(out, items, nav_root):
     lines += [f"이번 주 꼭 볼 것: {star['title']}", f"{star['summary'][:220] or '공고 원문에서 내용을 확인하세요.'}",
               f"자세히: {link(star, 'newsletter')}", "",
               f"지금 신청 가능한 공고 {len(items)}건 전체 보기: {SITE}/?utm_source=newsletter",
+              f"주변 사장님께 전달해 주세요. 이번 주 마감 모음: {SITE}/week.html?utm_source=forward",
               "이 소식은 기업마당 공식 데이터로 자동 정리했어요. 신청 대행·대출 알선은 하지 않아요."]
     os.makedirs(f"{out}/w", exist_ok=True)
     open(f"{out}/w/newsletter.txt", "w", encoding="utf-8").write(f"발행 날짜(초안 생성): {TODAY.isoformat()}\n\n" + "\n".join(lines) + "\n")
