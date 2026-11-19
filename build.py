@@ -33,7 +33,7 @@ TOPICS = [
 
 # 오래 남는 안내 페이지(g/<slug>.html). 공고 목록과 달리 검색량이 큰 주제를 설명한다.
 # 금리처럼 분기마다 바뀌는 숫자는 쓰지 않고 공식 페이지로 연결한다. 숫자를 고치면 CHECKED 날짜도 고친다.
-CHECKED = "2026-11-16"
+CHECKED = "2026-11-20"
 GUIDES = [
     {"slug": "policy-fund-guide", "topic": "policy-fund",
      "h1": "소상공인 정책자금 신청 방법 한 번에 정리",
@@ -620,7 +620,7 @@ function go(){{const t=q.value.trim().toLowerCase();let n=0;document.querySelect
             if fn.endswith(".html") and f"{d}/{fn}" not in keep_hubs: os.remove(f"{out}/{d}/{fn}")
     urls = [f"{SITE}/"] + [f"{SITE}/{p}" for p in hub_paths] + [f"{SITE}/p/{x['id']}.html" for x in items]
     open(f"{out}/sitemap.xml", "w", encoding="utf-8").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-        "".join(f"  <url><loc>{u}</loc><lastmod>{TODAY.isoformat()}</lastmod></url>\n" for u in urls) + "</urlset>\n")
+        "".join(f"  <url><loc>{u}</loc><lastmod>{CHECKED if "/g/" in u else TODAY.isoformat()}</lastmod></url>\n" for u in urls) + "</urlset>\n")
     open(f"{out}/robots.txt", "w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
     print(f"built {len(items)} of {len(raw)} items, {len(hub_paths)} hub pages")
     return items
