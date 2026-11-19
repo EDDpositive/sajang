@@ -33,7 +33,7 @@ TOPICS = [
 
 # 오래 남는 안내 페이지(g/<slug>.html). 공고 목록과 달리 검색량이 큰 주제를 설명한다.
 # 금리처럼 분기마다 바뀌는 숫자는 쓰지 않고 공식 페이지로 연결한다. 숫자를 고치면 CHECKED 날짜도 고친다.
-CHECKED = "2026-11-20"
+CHECKED = "2026-11-16"
 GUIDES = [
     {"slug": "policy-fund-guide", "topic": "policy-fund",
      "h1": "소상공인 정책자금 신청 방법 한 번에 정리",
@@ -108,7 +108,7 @@ GUIDES = [
 <li>공고문의 \"지원 대상\"과 \"제외 대상\"을 꼭 읽어요. 업력, 매출, 업종 조건이 자주 걸려요.</li>
 <li>대신 받아 주겠다며 수수료를 요구하는 브로커는 조심하세요. 대부분 직접 신청할 수 있어요.</li>
 </ol>"""},
-    {"slug": "startup-support-guide", "topic": "startup",
+    {"slug": "startup-support-guide", "checked": "2026-11-20", "topic": "startup",
      "h1": "예비창업자·초기창업자 지원사업 찾는 법과 신청 준비",
      "title": "예비창업·초기창업 지원사업 찾는 법·신청 준비 정리 | 사장님 지원금 레이더",
      "desc": "예비창업자와 창업 초기 사장님이 받을 수 있는 지원사업을 어디서 찾고, 신청 전에 무엇을 준비하면 좋은지 순서대로 정리했어요. 지금 모집 중인 창업 공고도 함께.",
@@ -133,7 +133,7 @@ GUIDES = [
 <li>제출 서류(신분증, 사업자등록증명, 소상공인 확인서 등)를 확인해요. <a href="sme-certificate-guide.html">소상공인 확인서 발급 안내</a></li>
 </ol>
 <p>선정되면 협약과 정산 규칙이 있어요. 지원금은 정해진 용도로만 쓰고 증빙을 남겨야 해요.</p>"""},
-    {"slug": "online-sales-guide", "topic": "sales",
+    {"slug": "online-sales-guide", "checked": "2026-11-20", "topic": "sales",
      "h1": "소상공인 온라인 판로·마케팅 지원 받는 법",
      "title": "소상공인 온라인 판로·마케팅 지원사업 신청 준비 정리 | 사장님 지원금 레이더",
      "desc": "쇼핑몰 입점, 상세페이지·홍보영상 제작, 라이브커머스, 광고비를 도와주는 온라인 판로 지원사업의 종류와 신청 전 준비를 정리했어요.",
@@ -153,7 +153,7 @@ GUIDES = [
 <li>같은 해에 비슷한 사업을 이미 받았으면 중복 지원이 막히는지 공고문에서 확인해요.</li>
 </ol>
 <p>모집 기간이 짧고 선착순인 경우가 많아요. 아래 공고를 마감 순으로 보세요.</p>"""},
-    {"slug": "digital-transition-guide", "topic": "digital",
+    {"slug": "digital-transition-guide", "checked": "2026-11-20", "topic": "digital",
      "h1": "스마트상점·디지털 전환 지원, 이렇게 준비해요",
      "title": "스마트상점·키오스크·디지털 전환 지원사업 정리 | 사장님 지원금 레이더",
      "desc": "키오스크, 테이블오더, 스마트 기기 도입과 디지털 교육을 도와주는 스마트상점·디지털 전환 지원사업의 종류와 신청 전 준비를 정리했어요.",
@@ -171,7 +171,7 @@ GUIDES = [
 <li>공급업체를 사업 쪽에서 정해 주는지, 사장님이 고르는지 확인해요.</li>
 </ol>
 <p>\"정부 지원으로 무료\"라며 계약을 서두르게 하는 방문 영업은 조심하세요. 공식 공고와 접수처에서 직접 확인하세요.</p>"""},
-    {"slug": "sme-certificate-guide", "topic": "*",
+    {"slug": "sme-certificate-guide", "checked": "2026-11-19", "topic": "*",
      "h1": "소상공인 확인서 발급 방법 (온라인, 무료)",
      "title": "소상공인 확인서 발급 방법·준비 서류·유효기간 정리 | 사장님 지원금 레이더",
      "desc": "지원사업 신청에 자주 필요한 소상공인 확인서를 중소기업현황정보시스템에서 무료로 발급하는 순서, 미리 볼 것, 자주 막히는 부분을 정리했어요.",
@@ -193,7 +193,7 @@ GUIDES = [
 <li><b>직원 수</b>: 사장님 본인과 무급 가족은 상시 근로자에 넣지 않아요.</li>
 </ul>
 <p>막히면 중소기업현황정보시스템 안내 페이지의 상담 번호로 물어보세요.</p>"""},
-    {"slug": "yellow-umbrella-guide", "topic": "*",
+    {"slug": "yellow-umbrella-guide", "checked": "2026-11-19", "topic": "*",
      "h1": "노란우산공제, 사장님 퇴직금이 되는 제도",
      "title": "노란우산공제 가입 조건·혜택·소득공제 정리 | 사장님 지원금 레이더",
      "desc": "노란우산공제는 소상공인·소기업 사장님이 매달 넣어 폐업·노령 때 돌려받는 공적 공제예요. 누가 가입하는지, 어떤 혜택이 있는지, 어디서 가입하는지 정리했어요.",
@@ -216,6 +216,8 @@ GUIDES = [
 <h2>어디서 가입하나요</h2>
 <p><a href="https://www.8899.or.kr" rel="nofollow noopener" target="_blank">노란우산 공식 누리집</a>이나 시중은행 창구에서 가입해요. 문의는 노란우산 콜센터 1666-9988.</p>"""},
 ]
+
+GCHK = {f"{SITE}/g/{g['slug']}.html": g.get("checked", CHECKED) for g in GUIDES}  # 사이트맵 lastmod: 안내 페이지는 내용 확인일
 
 def esc(s): return html.escape(str(s or ""), quote=True)
 def clean(s): return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html.unescape(str(s or "")))).strip()
@@ -563,9 +565,9 @@ def build(raw, out="."):
                 more = "../" if g["topic"] == "*" else f'../t/{g["topic"]}.html'
                 rel_html += f'<p class="meta"><a href="{more}">관련 공고 {len(rel)}건 전체 보기 →</a></p>'
         body = f"""<header><p class="meta"><a href="../">← 지원금 전체 목록</a></p><h1>{esc(g['h1'])}</h1>
-<p class="meta">내용 확인일 {CHECKED} · 세부 조건은 해마다 바뀌니 신청 전 공고문을 꼭 확인하세요.</p></header>
+<p class="meta">내용 확인일 {g.get('checked', CHECKED)} · 세부 조건은 해마다 바뀌니 신청 전 공고문을 꼭 확인하세요.</p></header>
 {g['body']}{rel_html}{cta()}{nav_sub}"""
-        ld = {"@context": "https://schema.org", "@type": "Article", "headline": g["h1"], "dateModified": CHECKED,
+        ld = {"@context": "https://schema.org", "@type": "Article", "headline": g["h1"], "dateModified": g.get("checked", CHECKED),
               "url": f"{SITE}/{path}"}
         open(f"{out}/{path}", "w", encoding="utf-8").write(page(g["title"], g["desc"], path, body, ld))
         hub_paths.append(path)
@@ -620,7 +622,7 @@ function go(){{const t=q.value.trim().toLowerCase();let n=0;document.querySelect
             if fn.endswith(".html") and f"{d}/{fn}" not in keep_hubs: os.remove(f"{out}/{d}/{fn}")
     urls = [f"{SITE}/"] + [f"{SITE}/{p}" for p in hub_paths] + [f"{SITE}/p/{x['id']}.html" for x in items]
     open(f"{out}/sitemap.xml", "w", encoding="utf-8").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-        "".join(f"  <url><loc>{u}</loc><lastmod>{CHECKED if "/g/" in u else TODAY.isoformat()}</lastmod></url>\n" for u in urls) + "</urlset>\n")
+        "".join(f"  <url><loc>{u}</loc><lastmod>{GCHK.get(u, TODAY.isoformat())}</lastmod></url>\n" for u in urls) + "</urlset>\n")
     open(f"{out}/robots.txt", "w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
     print(f"built {len(items)} of {len(raw)} items, {len(hub_paths)} hub pages")
     return items
