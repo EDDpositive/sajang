@@ -108,6 +108,50 @@ GUIDES = [
 <li>공고문의 \"지원 대상\"과 \"제외 대상\"을 꼭 읽어요. 업력, 매출, 업종 조건이 자주 걸려요.</li>
 <li>대신 받아 주겠다며 수수료를 요구하는 브로커는 조심하세요. 대부분 직접 신청할 수 있어요.</li>
 </ol>"""},
+    {"slug": "sme-certificate-guide", "topic": "*",
+     "h1": "소상공인 확인서 발급 방법 (온라인, 무료)",
+     "title": "소상공인 확인서 발급 방법·준비 서류·유효기간 정리 | 사장님 지원금 레이더",
+     "desc": "지원사업 신청에 자주 필요한 소상공인 확인서를 중소기업현황정보시스템에서 무료로 발급하는 순서, 미리 볼 것, 자주 막히는 부분을 정리했어요.",
+     "body": """<div class="card">
+<p><b>한 줄로</b>: 소상공인 확인서는 \"우리 가게가 소상공인 기준에 든다\"는 공식 확인이에요. <a href="https://sminfo.mss.go.kr" rel="nofollow noopener" target="_blank">중소기업현황정보시스템</a>에서 온라인으로 무료 발급해요.</p></div>
+<h2>언제 필요한가요</h2>
+<p>소상공인 전용 지원사업, 정책자금, 지자체 지원금을 신청할 때 제출 서류로 자주 나와요. 공고문 \"제출 서류\" 칸에 \"소상공인 확인서\"가 있으면 미리 받아 두세요. 기준에 드는지 먼저 보고 싶으면 <a href="../check.html">30초 소상공인 확인</a>부터 해 보세요.</p>
+<h2>발급 순서</h2>
+<ol>
+<li>중소기업현황정보시스템에 회원가입하고 사업자 공동인증서(또는 안내된 인증 방식)로 로그인해요.</li>
+<li>\"확인서 신청\"에서 소상공인 확인서를 골라요.</li>
+<li>매출·상시 근로자 수 자료를 확인해요. 국세청·4대보험 자료가 연계되는 경우가 많고, 안 되면 서류를 올려요.</li>
+<li>검토가 끝나면 사이트에서 확인서를 내려받아요.</li>
+</ol>
+<h2>자주 막히는 부분</h2>
+<ul>
+<li><b>신규 사업자</b>: 결산 자료가 없으면 다른 서류로 대신하는 방법이 안내돼요. 사이트 안내를 따라가세요.</li>
+<li><b>유효기간</b>: 확인서에는 유효기간이 있어요. 지원사업 신청일에 유효한지 꼭 보세요.</li>
+<li><b>직원 수</b>: 사장님 본인과 무급 가족은 상시 근로자에 넣지 않아요.</li>
+</ul>
+<p>막히면 중소기업현황정보시스템 안내 페이지의 상담 번호로 물어보세요.</p>"""},
+    {"slug": "yellow-umbrella-guide", "topic": "*",
+     "h1": "노란우산공제, 사장님 퇴직금이 되는 제도",
+     "title": "노란우산공제 가입 조건·혜택·소득공제 정리 | 사장님 지원금 레이더",
+     "desc": "노란우산공제는 소상공인·소기업 사장님이 매달 넣어 폐업·노령 때 돌려받는 공적 공제예요. 누가 가입하는지, 어떤 혜택이 있는지, 어디서 가입하는지 정리했어요.",
+     "body": """<div class="card">
+<p><b>한 줄로</b>: 노란우산공제는 중소기업중앙회가 운영하는 소기업·소상공인 공제예요. 매달 넣은 돈을 폐업, 사망, 노령 같은 때 돌려받아서 \"사장님 퇴직금\"이라고 불려요.</p></div>
+<h2>누가 가입할 수 있나요</h2>
+<p>사업자등록을 한 소기업·소상공인 대표가 대상이에요. 업종에 따라 가입이 제한되는 경우(유흥업 등)가 있으니 가입 전에 확인하세요.</p>
+<h2>무엇이 좋은가요</h2>
+<ul>
+<li><b>소득공제</b>: 낸 돈은 사업소득 크기에 따라 정해진 한도 안에서 종합소득세 소득공제를 받아요. 한도는 공식 안내에서 확인하세요.</li>
+<li><b>압류 금지</b>: 공제금은 법으로 압류·양도·담보 제공이 금지돼요. 가게가 어려워져도 생활 자금으로 남아요.</li>
+<li><b>폐업 때 받는 돈</b>: 폐업하면 낸 돈에 이자를 붙여 공제금으로 받아요.</li>
+<li><b>지자체 장려금</b>: 일부 지자체는 신규 가입 소상공인에게 장려금을 더 얹어 줘요. 지역별 조건은 공식 안내에서 봐요.</li>
+</ul>
+<h2>조심할 것</h2>
+<ul>
+<li>폐업·노령 같은 사유 없이 중간에 해지하면, 그동안 받은 소득공제만큼 세금이 붙어 손해일 수 있어요.</li>
+<li>매달 넣을 금액은 오래 낼 수 있는 만큼만 정하세요.</li>
+</ul>
+<h2>어디서 가입하나요</h2>
+<p><a href="https://www.8899.or.kr" rel="nofollow noopener" target="_blank">노란우산 공식 누리집</a>이나 시중은행 창구에서 가입해요. 문의는 노란우산 콜센터 1666-9988.</p>"""},
 ]
 
 def esc(s): return html.escape(str(s or ""), quote=True)
@@ -239,7 +283,7 @@ def li(x, base=""):
 
 def hub_links(region_hubs, topic_hubs, base=""):
     """지역별·주제별 모음 페이지 링크 묶음(검색 로봇이 따라갈 수 있는 일반 링크)."""
-    out = f'<h2>도구</h2><p class="links"><a href="{base}check.html">우리 가게, 소상공인 맞나요? (30초 확인)</a></p>'
+    out = f'<h2>도구</h2><p class="links"><a href="{base}week.html">이번 주 마감 지원금 골라 보기</a><a href="{base}check.html">우리 가게, 소상공인 맞나요? (30초 확인)</a></p>'
     out += "<h2>알아 두면 좋은 안내</h2><p class=\"links\">" + "".join(
         f'<a href="{base}g/{g["slug"]}.html">{esc(g["h1"])}</a>' for g in GUIDES) + "</p>"
     if region_hubs:
@@ -263,6 +307,49 @@ def write_hub(out, path, h1, title, desc, lead, groups, nav):
 {sections}{cta()}{nav}"""
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": h1, "url": f"{SITE}/{path}"}
     open(f"{out}/{path}", "w", encoding="utf-8").write(page(title, desc, path, body, ld))
+
+def week_picks(items, n=5):
+    """주간 소식에 실을 공고: 14일 안에 마감하는 전국·서울·경기 공고를 마감 순으로, 모자라면 금액이 보이는 상시 전국 공고로 채운다."""
+    soon = [x for x in items if x["end"] and (datetime.date.fromisoformat(x["end"]) - TODAY).days <= 14
+            and x["region"] in ("전국", "서울", "경기")]
+    picks = soon[:n]
+    if len(picks) < n:
+        extra = [x for x in items if not x["end"] and x["region"] == "전국" and amount(x) and x not in picks]
+        picks += extra[:n - len(picks)]
+    return picks
+
+def write_week(out, items, nav_root):
+    """이번 주 마감 페이지(week.html, 검색 노출)와 뉴스레터 초안(w/newsletter.txt, 피클AI가 beehiiv에 그대로 붙인다)."""
+    picks = week_picks(items)
+    if not picks: return []
+    hot7 = [x for x in items if x["end"] and (datetime.date.fromisoformat(x["end"]) - TODAY).days <= 7]
+    star = next((x for x in picks if amount(x)), picks[0])
+    def link(x, src): return f"{SITE}/p/{x['id']}.html?utm_source={src}"
+    lines = [f"이번 주 사장님 지원금 {len(picks)}건 (마감 순)", ""]
+    for i, x in enumerate(picks, 1):
+        tag = "[마감 임박] " if is_hot(x) else ""
+        what = (x["summary"][:110] + ("…" if len(x["summary"]) > 110 else "")) if x["summary"] else amount(x)
+        lines += [f"{i}. {tag}{x['title']}",
+                  f"누가: {x['target'] or '공고 확인'} ({x['region']}). 공고문에서 자격 확인 필수",
+                  f"무엇을: {what or '공고 원문 확인'}",
+                  f"마감: {x['end'] or '예산 소진 시까지'} ({dday(x)}) / {link(x, 'newsletter')}", ""]
+    lines += [f"이번 주 꼭 볼 것: {star['title']}", f"{star['summary'][:220] or '공고 원문에서 내용을 확인하세요.'}",
+              f"자세히: {link(star, 'newsletter')}", "",
+              f"지금 신청 가능한 공고 {len(items)}건 전체 보기: {SITE}/?utm_source=newsletter",
+              "이 소식은 기업마당 공식 데이터로 자동 정리했어요. 신청 대행·대출 알선은 하지 않아요."]
+    os.makedirs(f"{out}/w", exist_ok=True)
+    open(f"{out}/w/newsletter.txt", "w", encoding="utf-8").write(f"발행 날짜(초안 생성): {TODAY.isoformat()}\n\n" + "\n".join(lines) + "\n")
+    wk = (TODAY.day - 1) // 7 + 1
+    h1 = f"이번 주 마감 소상공인 지원금 ({TODAY.month}월 {wk}주차)"
+    body = f"""<header><p class="meta"><a href="./">← 지원금 전체 목록</a></p><h1>{esc(h1)}</h1>
+<p class="lead">이번 주와 다음 주에 끝나는 지원금 중 전국·서울·경기 사장님이 신청할 수 있는 것을 골랐어요. 7일 안에 끝나는 공고는 아래에 모두 있어요.</p>
+<p class="meta">{TODAY.isoformat()} 기준 · 기업마당 공식 데이터로 매일 갱신</p></header>
+<h2>이번 주 골라 본 {len(picks)}건</h2>{"".join(li(x, "") for x in picks)}
+{f'<h2>7일 안에 마감하는 공고 {len(hot7)}건 (전 지역)</h2>' + "".join(li(x, "") for x in hot7) if hot7 else ""}{cta()}{nav_root}"""
+    ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": h1, "url": f"{SITE}/week.html"}
+    open(f"{out}/week.html", "w", encoding="utf-8").write(page(f"{h1} | 사장님 지원금 레이더",
+        f"{TODAY.month}월 이번 주에 마감하는 소상공인 지원금·정책자금 공고를 골라 마감 순으로 정리했어요. 전국·서울·경기 {len(picks)}건과 7일 안 마감 {len(hot7)}건.", "week.html", body, ld))
+    return ["week.html"]
 
 def write_extras(out, items, nav_sub):
     """도구·운영 원칙·주간 카드 페이지."""
@@ -408,6 +495,7 @@ def build(raw, out="."):
 
     write_extras(out, items, nav_sub)
     hub_paths += ["check.html", "about.html"]
+    hub_paths += write_week(out, items, nav_sub.replace('href="../', 'href="'))
 
     lst = "\n".join(li(x, "") for x in items)
     regions = "".join(f"<option>{r}</option>" for r in ["전국"] + REGIONS)
