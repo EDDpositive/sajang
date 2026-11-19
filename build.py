@@ -516,9 +516,27 @@ function go(){{const t=q.value.trim().toLowerCase();let n=0;document.querySelect
     open(f"{out}/index.html", "w", encoding="utf-8").write(page("소상공인 정책자금·지원금 신청 가능한 공고 (마감 임박 순) | 사장님 지원금 레이더",
         "소상공인 정책자금, 소상공인 지원금, 자영업자 지원사업 중 지금 신청할 수 있는 공고를 마감 순으로 매일 정리합니다. 지역·분야별로 찾고 공고 원문으로 바로 이동하세요.", "", body, ld))
     # 지금 목록에 없는 공고 페이지(마감·기준 밖)와 공고가 0건이 된 모음 페이지는 지운다.
+    # 검색으로 들어온 사람이 404를 보지 않게, 빠진 공고는 30일 동안 "마감" 안내(noindex)로 바꿔 둔 뒤 지운다.
     keep_ids = {x["id"] for x in items}
+    closed_path = f"{out}/p/closed.json"
+    try: closed = json.load(open(closed_path, encoding="utf-8"))
+    except (OSError, ValueError): closed = {}
     for fn in os.listdir(f"{out}/p"):
-        if fn.endswith(".html") and fn[:-5] not in keep_ids: os.remove(f"{out}/p/{fn}")
+        if not fn.endswith(".html") or fn[:-5] in keep_ids: continue
+        pid = fn[:-5]
+        if pid not in closed:
+            m = re.search(r"<h1>(.*?)</h1>", open(f"{out}/p/{fn}", encoding="utf-8").read(), re.S)
+            closed[pid] = {"since": TODAY.isoformat(), "title": html.unescape(m.group(1)) if m else "이 공고"}
+        if (TODAY - datetime.date.fromisoformat(closed[pid]["since"])).days > 30:
+            os.remove(f"{out}/p/{fn}"); continue
+        body = f"""<header><p class="meta"><a href="../">← 지원금 전체 목록</a></p><h1>{esc(closed[pid]['title'])}</h1>
+<div class="row"><span class="tag hot">마감됐거나 목록에서 빠진 공고</span></div></header>
+<div class="card"><p>이 공고는 신청 기간이 끝났거나 기업마당 목록에서 내려갔어요. 비슷한 공고는 아래에서 지금 신청할 수 있어요.</p>
+<p><a class="btn" href="../week.html">이번 주 마감 지원금 보기</a></p></div>{cta()}{nav_sub}"""
+        html_out = page(f"[마감] {closed[pid]['title']} | 사장님 지원금 레이더", "마감된 공고예요. 지금 신청할 수 있는 비슷한 지원금을 확인하세요.", f"p/{fn}", body)
+        open(f"{out}/p/{fn}", "w", encoding="utf-8").write(html_out.replace("<head>", '<head><meta name="robots" content="noindex">', 1))
+    closed = {k: v for k, v in closed.items() if k not in keep_ids and os.path.exists(f"{out}/p/{k}.html")}
+    json.dump(closed, open(closed_path, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
     keep_hubs = set(hub_paths)
     for d in ("r", "t", "c"):
         for fn in os.listdir(f"{out}/{d}"):
