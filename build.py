@@ -108,6 +108,69 @@ GUIDES = [
 <li>공고문의 \"지원 대상\"과 \"제외 대상\"을 꼭 읽어요. 업력, 매출, 업종 조건이 자주 걸려요.</li>
 <li>대신 받아 주겠다며 수수료를 요구하는 브로커는 조심하세요. 대부분 직접 신청할 수 있어요.</li>
 </ol>"""},
+    {"slug": "startup-support-guide", "topic": "startup",
+     "h1": "예비창업자·초기창업자 지원사업 찾는 법과 신청 준비",
+     "title": "예비창업·초기창업 지원사업 찾는 법·신청 준비 정리 | 사장님 지원금 레이더",
+     "desc": "예비창업자와 창업 초기 사장님이 받을 수 있는 지원사업을 어디서 찾고, 신청 전에 무엇을 준비하면 좋은지 순서대로 정리했어요. 지금 모집 중인 창업 공고도 함께.",
+     "body": """<div class="card">
+<p><b>한 줄로</b>: 창업 지원사업은 대부분 <a href="https://www.k-startup.go.kr" rel="nofollow noopener" target="_blank">K-Startup(창업지원포털)</a>과 기업마당에 공고가 올라와요. 사업자등록 전인지, 창업 몇 년 차인지에 따라 신청할 수 있는 사업이 달라요.</p></div>
+<h2>먼저 내 단계를 확인해요</h2>
+<ul>
+<li><b>예비창업자</b>: 아직 사업자등록을 하지 않은 사람. \"예비창업\"이라고 적힌 공고만 신청할 수 있는 경우가 많아요. 등록을 먼저 하면 자격을 잃는 사업도 있으니 공고를 본 뒤에 등록하세요.</li>
+<li><b>초기창업자</b>: 보통 창업 3년 이내. 업력은 사업자등록일(법인은 설립일)부터 셉니다.</li>
+<li><b>재창업자</b>: 폐업 뒤 다시 창업하는 경우는 <a href="hope-return-guide.html">희망리턴패키지 안내</a>도 함께 보세요.</li>
+</ul>
+<h2>지원 종류</h2>
+<ul>
+<li><b>사업화 자금</b>: 시제품·마케팅 등에 쓰는 돈. 사업계획서 심사와 발표 평가가 있어요.</li>
+<li><b>공간(창업보육센터)</b>: 사무실·공유 공간을 싸게 빌려줘요. 입주 뒤 주사업장을 옮겨야 하는 곳이 많아요.</li>
+<li><b>교육·멘토링</b>: 무료 특강, 1:1 멘토링. 선착순이 많아 빨리 마감돼요.</li>
+</ul>
+<h2>신청 전 준비</h2>
+<ol>
+<li>공고문의 \"신청 자격\"과 \"제외 대상\"을 먼저 읽어요(나이, 업력, 지역, 업종).</li>
+<li>사업계획서 양식을 내려받아 미리 채워 봐요. 문제, 해결 방법, 고객, 돈 버는 방법, 일정 순서로 쓰면 돼요.</li>
+<li>제출 서류(신분증, 사업자등록증명, 소상공인 확인서 등)를 확인해요. <a href="sme-certificate-guide.html">소상공인 확인서 발급 안내</a></li>
+</ol>
+<p>선정되면 협약과 정산 규칙이 있어요. 지원금은 정해진 용도로만 쓰고 증빙을 남겨야 해요.</p>"""},
+    {"slug": "online-sales-guide", "topic": "sales",
+     "h1": "소상공인 온라인 판로·마케팅 지원 받는 법",
+     "title": "소상공인 온라인 판로·마케팅 지원사업 신청 준비 정리 | 사장님 지원금 레이더",
+     "desc": "쇼핑몰 입점, 상세페이지·홍보영상 제작, 라이브커머스, 광고비를 도와주는 온라인 판로 지원사업의 종류와 신청 전 준비를 정리했어요.",
+     "body": """<div class="card">
+<p><b>한 줄로</b>: 온라인 판로 지원은 정부와 시·군이 쇼핑몰 입점, 상세페이지·영상 제작, 광고비 일부를 대신 내주는 사업이에요. 전국 사업은 <a href="https://www.sbiz24.kr" rel="nofollow noopener" target="_blank">소상공인24</a>, 시·군 사업은 각 지자체 공고로 나와요.</p></div>
+<h2>자주 나오는 지원</h2>
+<ul>
+<li><b>입점 지원</b>: 오픈마켓·종합몰·해외 플랫폼 입점 대행과 초기 수수료 지원.</li>
+<li><b>콘텐츠 제작</b>: 상세페이지, 제품 사진, 홍보 영상.</li>
+<li><b>광고·라이브커머스</b>: 검색광고, 쇼핑검색 광고, 라이브 방송 기획.</li>
+</ul>
+<h2>신청 전 준비</h2>
+<ol>
+<li>팔 상품을 정해요. 대부분 \"이미 판매 중이거나 바로 팔 수 있는 상품\"이 있어야 해요.</li>
+<li>사업장 소재지를 확인해요. 시·군 사업은 그 지역에 사업자등록이 돼 있어야 신청할 수 있어요.</li>
+<li>자기부담금이 있는지 봐요. 지원금 외에 일부를 사장님이 내는 사업이 많아요.</li>
+<li>같은 해에 비슷한 사업을 이미 받았으면 중복 지원이 막히는지 공고문에서 확인해요.</li>
+</ol>
+<p>모집 기간이 짧고 선착순인 경우가 많아요. 아래 공고를 마감 순으로 보세요.</p>"""},
+    {"slug": "digital-transition-guide", "topic": "digital",
+     "h1": "스마트상점·디지털 전환 지원, 이렇게 준비해요",
+     "title": "스마트상점·키오스크·디지털 전환 지원사업 정리 | 사장님 지원금 레이더",
+     "desc": "키오스크, 테이블오더, 스마트 기기 도입과 디지털 교육을 도와주는 스마트상점·디지털 전환 지원사업의 종류와 신청 전 준비를 정리했어요.",
+     "body": """<div class="card">
+<p><b>한 줄로</b>: 디지털 전환 지원은 가게에 키오스크·테이블오더·서빙로봇 같은 기기를 들이거나, 온라인 예약·결제를 배우는 데 드는 비용을 도와주는 사업이에요. 공고는 <a href="https://www.sbiz24.kr" rel="nofollow noopener" target="_blank">소상공인24</a>와 지자체에 나와요.</p></div>
+<h2>지원 종류</h2>
+<ul>
+<li><b>기기 보급</b>: 키오스크, 테이블오더, 스마트미러 등 기기 값의 일부를 지원. 자기부담금이 있어요.</li>
+<li><b>교육·컨설팅</b>: 온라인 예약, SNS 홍보, 배달앱 운영을 1:1로 알려 줘요. 중장년 사장님 대상 사업도 있어요.</li>
+</ul>
+<h2>신청 전 준비</h2>
+<ol>
+<li>가게에 무엇이 필요한지 먼저 정해요. 기기를 들인 뒤 유지비(월 이용료·통신비)도 계산해요.</li>
+<li>공고문의 업종·면적·업력 조건을 확인해요.</li>
+<li>공급업체를 사업 쪽에서 정해 주는지, 사장님이 고르는지 확인해요.</li>
+</ol>
+<p>\"정부 지원으로 무료\"라며 계약을 서두르게 하는 방문 영업은 조심하세요. 공식 공고와 접수처에서 직접 확인하세요.</p>"""},
     {"slug": "sme-certificate-guide", "topic": "*",
      "h1": "소상공인 확인서 발급 방법 (온라인, 무료)",
      "title": "소상공인 확인서 발급 방법·준비 서류·유효기간 정리 | 사장님 지원금 레이더",
@@ -258,7 +321,8 @@ footer{font-size:12px;color:var(--sub);margin-top:24px}dt{font-size:12px;color:v
 
 def page(title, desc, path, body, ld=None):
     canon = f"{SITE}/{path}"
-    ldtag = f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>' if ld else ""
+    lds = ld if isinstance(ld, list) else ([ld] if ld else [])
+    ldtag = "".join(f'<script type="application/ld+json">{json.dumps(d, ensure_ascii=False)}</script>' for d in lds)
     return f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><link rel="canonical" href="{canon}">
 <meta property="og:type" content="website"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{canon}">
@@ -294,7 +358,7 @@ def hub_links(region_hubs, topic_hubs, base=""):
             f'<a href="{base}t/{slug}.html">{esc(name)} ({n})</a>' for slug, name, n in topic_hubs) + "</p>"
     return out
 
-def write_hub(out, path, h1, title, desc, lead, groups, nav):
+def write_hub(out, path, h1, title, desc, lead, groups, nav, intro=""):
     now = datetime.datetime.now(KST).strftime("%Y-%m-%d %H:%M")
     total = sum(len(g) for _, g in groups)
     sections = ""
@@ -304,7 +368,7 @@ def write_hub(out, path, h1, title, desc, lead, groups, nav):
         sections += "\n".join(li(x, "../") for x in xs)
     body = f"""<header><p class="meta"><a href="../">← 지원금 전체 목록</a></p><h1>{esc(h1)}</h1>
 <p class="lead">{esc(lead)}</p><p class="meta">마지막 갱신 {now} (한국 시간) · 공고 {total}건</p></header>
-{sections}{cta()}{nav}"""
+{intro}{sections}{cta()}{nav}"""
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": h1, "url": f"{SITE}/{path}"}
     open(f"{out}/{path}", "w", encoding="utf-8").write(page(title, desc, path, body, ld))
 
@@ -421,13 +485,23 @@ def build(raw, out="."):
         for slug, name, _ in topics_of(x):
             if slug in topic_ok: more.append(f'<a href="../t/{slug}.html">{esc(name)}</a>')
         more_html = f'<h2>비슷한 공고 더 보기</h2><p class="links">{"".join(more)}</p>' if more else ""
+        tslugs = [t[0] for t in topics_of(x)]
+        gl = [g for g in GUIDES if g["topic"] in tslugs] + [g for g in GUIDES if g["slug"] == "sme-certificate-guide"]
+        more_html += '<h2>신청 전에 보면 좋은 안내</h2><p class="links">' + "".join(
+            f'<a href="../g/{g["slug"]}.html">{esc(g["h1"])}</a>' for g in gl[:3]) + "</p>"
         body = f"""<header><p class="meta"><a href="../">← 지원금 전체 목록</a></p><h1>{esc(x['title'])}</h1>
 <div class="row"><span class="tag{' hot' if is_hot(x) else ''}">{esc(dday(x))}</span><span class="tag">{esc(x['region'])}</span>{f'<span class="tag">{esc(x["field"])}</span>' if x['field'] else ''}</div></header>
 <div class="card"><dl>{f'<dt>지원 한도 (공고 요약에서 자동 추출)</dt><dd><b>{esc(amount(x))}</b> · 실제 금액은 원문에서 확인하세요</dd>' if amount(x) else ''}<dt>신청 기간</dt><dd>{esc(x['period'] or '공고 원문 확인')}</dd><dt>지원 대상</dt><dd>{esc(x['target'] or '공고 원문 확인')}</dd>
 <dt>담당 기관</dt><dd>{esc(' / '.join(v for v in [x['org'], x['exec']] if v) or '공고 원문 확인')}</dd>
 {f'<dt>사업 내용 요약</dt><dd>{esc(x["summary"])}</dd>' if x['summary'] else ''}</dl>
 <p style="margin-top:14px"><a class="btn" href="{esc(x['url'])}" rel="nofollow noopener" target="_blank">공고 원문 보기</a></p></div>{more_html}{cta()}"""
-        open(f"{out}/p/{x['id']}.html", "w", encoding="utf-8").write(page(f"{x['title']} | 신청 기간·대상 정리", desc, f"p/{x['id']}.html", body, ld))
+        crumbs = [("지원금 전체 목록", f"{SITE}/")]
+        if x["region"] in region_ok: crumbs.append((f"{x['region']} 지원금", f"{SITE}/r/{REGION_SLUG[x['region']]}.html"))
+        crumbs.append((x["title"], f"{SITE}/p/{x['id']}.html"))
+        bc = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": i, "name": n, "item": u} for i, (n, u) in enumerate(crumbs, 1)]}
+        endtag = f" ({x['end'][5:].replace('-', '/')} 마감)" if x["end"] else ""
+        open(f"{out}/p/{x['id']}.html", "w", encoding="utf-8").write(page(f"{x['title']}{endtag} | 신청 기간·대상 정리", desc, f"p/{x['id']}.html", body, [ld, bc]))
 
     # 지역별 모음 페이지
     nav_sub = hub_links(region_hubs, topic_hubs, "../")
@@ -453,9 +527,11 @@ def build(raw, out="."):
         path = f"t/{slug}.html"
         h1 = f"{name} {MONTH} 신청 가능한 공고"
         lead = f"소상공인·자영업자를 위한 {name} 공고 중 지금 신청할 수 있는 것을 마감이 가까운 순서로 모았어요."
+        tg = next((g for g in GUIDES if g["topic"] == slug), None)
+        intro = f'<p class="card">처음이면 먼저 읽어 보세요: <a href="../g/{tg["slug"]}.html">{esc(tg["h1"])}</a></p>' if tg else ""
         title = f"{name} {MONTH} 공고 {n}건 (마감 순) | 사장님 지원금 레이더"
         desc = f"{name} 관련 소상공인 지원사업 공고 {n}건을 마감 순으로 정리했어요. 지역·마감일·원문 링크를 한눈에. 기업마당 공식 데이터로 매일 갱신."
-        write_hub(out, path, h1, title, desc, lead, [(None, by_topic[slug])], nav_sub)
+        write_hub(out, path, h1, title, desc, lead, [(None, by_topic[slug])], nav_sub, intro)
         hub_paths.append(path)
 
     # 지역×주제 모음 페이지(c/<지역>-<주제>.html). "서울 소상공인 정책자금" 같은 긴 검색어를 받는다.
